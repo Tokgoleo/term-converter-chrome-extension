@@ -1,0 +1,44 @@
+{
+  "name": "Term Translator",
+  "version": "0.1",
+  "description": "将陌生术语以划词的方式轻松翻译到你熟悉领域的专业词汇",
+  "manifest_version": 2,
+  "icons": {
+    "16": "images/get_started16.png",
+    "32": "images/get_started32.png",
+    "48": "images/get_started48.png",
+    "128": "images/get_started128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "images/get_started16.png",
+      "32": "images/get_started32.png"
+    },
+    "default_title": "Term Translator",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content-script.css"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "contextMenus",
+    "chrome-extension://*/",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    "terms.txt"
+  ]
+}
